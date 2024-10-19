@@ -18,11 +18,16 @@ jobs:
       uses: actions/setup-java@v3
       with:
         java-version: '11'
-        distribution: 'temurin'  # Added distribution
+        distribution: 'temurin'
+
+    - name: Display Maven version
+      run: mvn -v
+      working-directory: ./hello-world-example
 
     - name: Build with Maven
       run: mvn clean install
+      working-directory: ./hello-world-example
 
     - name: Run tests
       run: mvn test
-
+      working-directory: ./hello-world-example
